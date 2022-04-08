@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styles from './UserItem.module.css';
 export class UserItem extends React.Component {
   constructor(props) {
     super(props);
@@ -7,6 +7,10 @@ export class UserItem extends React.Component {
   }
 
   render() {
-    return <div></div>;
+    return (
+      <div className={styles.userItem}>
+        {this.props.data.username} ({this.props.data.age} years old)
+      </div>
+    );
   }
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import styles from './UserInput.module.css';
+import Card from '../UI/Card';
 
 export class UserInput extends React.Component {
   constructor(props) {
@@ -6,12 +8,22 @@ export class UserInput extends React.Component {
     this.props = props;
     this.state = {
       username: '',
-      age: 0,
+      age: '',
     };
+    this.ageChangeHandler = this.ageChangeHandler.bind(this);
+    this.nameChangeHandler = this.nameChangeHandler.bind(this);
+    this.formSubmitHandler = this.formSubmitHandler.bind(this);
   }
 
-  formSubmitHandler() {
+  formSubmitHandler(event) {
+    event.preventDefault();
     this.props.submit(this.state);
+    this.setState((prev) => {
+      return {
+        username: '',
+        age: '',
+      };
+    });
   }
   nameChangeHandler(event) {
     this.setState((prev) => {
@@ -32,27 +44,31 @@ export class UserInput extends React.Component {
 
   render() {
     return (
-      <form className='inputs' onSubmit={this.formSubmitHandler}>
-        <div className='input'>
-          <label htmlFor='name'>Enter Name</label>
-          <input
-            name='name'
-            type='text'
-            onChange={this.nameChangeHandler}
-          ></input>
-        </div>
-        <div className='input'>
-          <label htmlFor='age'>Enter Age</label>
-          <input
-            name='age'
-            type='number'
-            min='18'
-            max='80'
-            onChange={this.ageChangeHandler}
-          ></input>
-        </div>
-        <button type='submit'>Add User</button>
-      </form>
+      <Card>
+        <form className={styles.inputs} onSubmit={this.formSubmitHandler}>
+          <div className={styles.input}>
+            <label htmlFor='name'>Name</label>
+            <input
+              id='name'
+              type='text'
+              value={this.state.username}
+              onChange={this.nameChangeHandler}
+            ></input>
+          </div>
+          <div className={styles.input}>
+            <label htmlFor='age'> Age</label>
+            <input
+              id='age'
+              type='number'
+              min='18'
+              max='80'
+              value={this.state.age}
+              onChange={this.ageChangeHandler}
+            ></input>
+          </div>
+          <button type='submit'>Add User</button>
+        </form>
+      </Card>
     );
   }
 }
