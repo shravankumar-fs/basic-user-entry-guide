@@ -1,7 +1,7 @@
 .displayPanel {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   height: fit-content;
   max-height: 70%;
   overflow-y: scroll;

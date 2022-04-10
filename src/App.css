@@ -1,18 +1,2 @@
 .App {
-  height: 100vh;
-  width: 100vw;
-  background-image: linear-gradient(
-    135deg,
-    midnightblue 0% 20%,
-    purple 21% 40%,
-    hsl(275, 100%, 15%) 41% 50%,
-    hsl(300, 56%, 32%) 51% 60%,
-    hsl(240, 64%, 27%) 61%
-  );
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 20px;
-  padding: 20px 0px;
 }

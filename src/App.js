@@ -11,10 +11,10 @@ function App() {
     });
   }
   return (
-    <div className='App'>
+    <>
       <UserInput submit={addData} />
       <UserDisplay list={userItems} />
-    </div>
+    </>
   );
 }
 

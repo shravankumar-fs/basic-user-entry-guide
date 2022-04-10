@@ -1,7 +1,13 @@
 .userItem {
   padding: 5px 10px;
   color: #eee;
-  border: 1px solid #0003;
   border-radius: 10px;
   font-weight: 600;
+  background: linear-gradient(
+    135deg,
+    hsla(0, 0%, 100%, 0.05),
+    hsla(0, 0%, 100%, 0.3)
+  );
+  box-shadow: 2px 3px 2px 0px #0003, inset 1px 1px 5px 0px #0003,
+    -1px -1px 2px 0px #fff3, inset -2px -2px 5px 0px #fff3;
 }
