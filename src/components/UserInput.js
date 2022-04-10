@@ -1,14 +1,20 @@
 import React from 'react';
 import styles from './UserInput.module.css';
 import Card from '../UI/Card';
+import Button from '../UI/Button';
 
 export class UserInput extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
     this.state = {
-      username: '',
-      age: '',
+      data: {
+        username: '',
+        age: '',
+      },
+      error: {
+        message: '',
+      },
     };
     this.ageChangeHandler = this.ageChangeHandler.bind(this);
     this.nameChangeHandler = this.nameChangeHandler.bind(this);
@@ -17,11 +23,26 @@ export class UserInput extends React.Component {
 
   formSubmitHandler(event) {
     event.preventDefault();
-    this.props.submit(this.state);
+
+    if (
+      +this.state.data.age < 18 ||
+      +this.state.data.age > 80 ||
+      this.state.data.username.trim().length === 0
+    ) {
+      return;
+    }
+
+    this.props.submit(this.state.data);
+
     this.setState((prev) => {
       return {
-        username: '',
-        age: '',
+        error: {
+          message: '',
+        },
+        data: {
+          username: '',
+          age: '',
+        },
       };
     });
   }
@@ -29,7 +50,10 @@ export class UserInput extends React.Component {
     this.setState((prev) => {
       return {
         ...prev,
-        username: event.target.value,
+        data: {
+          ...this.state.data,
+          username: event.target.value,
+        },
       };
     });
   }
@@ -37,7 +61,10 @@ export class UserInput extends React.Component {
     this.setState((prev) => {
       return {
         ...prev,
-        age: +event.target.value,
+        data: {
+          ...this.state.data,
+          age: +event.target.value,
+        },
       };
     });
   }
@@ -51,7 +78,7 @@ export class UserInput extends React.Component {
             <input
               id='name'
               type='text'
-              value={this.state.username}
+              value={this.state.data.username}
               onChange={this.nameChangeHandler}
             ></input>
           </div>
@@ -62,11 +89,11 @@ export class UserInput extends React.Component {
               type='number'
               min='18'
               max='80'
-              value={this.state.age}
+              value={this.state.data.age}
               onChange={this.ageChangeHandler}
             ></input>
           </div>
-          <button type='submit'>Add User</button>
+          <Button type='submit'>Add User</Button>
         </form>
       </Card>
     );

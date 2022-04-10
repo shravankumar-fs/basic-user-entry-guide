@@ -8,7 +8,12 @@ class Card extends React.Component {
   }
 
   render() {
-    return <div className={styles.Card}>{this.props.children}</div>;
+    let additional = this.props.className;
+    return (
+      <div className={`${styles.Card} ${additional ? additional : ''}`}>
+        {this.props.children}
+      </div>
+    );
   }
 }
 

@@ -2,7 +2,6 @@ import { UserInput } from './components/UserInput';
 import { UserDisplay } from './components/UserDisplay';
 import './App.css';
 import { useState } from 'react';
-
 function App() {
   const [userItems, setUserItems] = useState([]);
 

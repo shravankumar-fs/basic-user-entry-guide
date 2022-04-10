@@ -1,0 +1,15 @@
+button {
+  width: fit-content;
+  padding: 10px 20px;
+  border: 0;
+  background-color: hsl(240, 64%, 27%);
+  font-weight: 600;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button:active,
+button:hover {
+  transform: scale(0.98);
+  background-color: hsl(240, 64%, 37%);
+}

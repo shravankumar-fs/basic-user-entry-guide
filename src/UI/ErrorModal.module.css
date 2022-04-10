@@ -1,0 +1,29 @@
+.backDrop {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: hsla(0, 0%, 0%, 0.7);
+  z-index: 1;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background-color: #fff2;
+  color: white;
+}
+.modal h2 {
+  color: red;
+}
+.actions button {
+  background-color: red;
+}
+.actions button:hover,
+button:active {
+  background-color: brown;
+}

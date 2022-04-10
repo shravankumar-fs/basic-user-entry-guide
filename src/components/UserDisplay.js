@@ -12,12 +12,10 @@ export class UserDisplay extends React.Component {
   render() {
     return (
       this.props.list.length > 0 && (
-        <Card>
-          <div className={styles.displayPanel}>
-            {this.props.list.map((item) => (
-              <UserItem key={Math.random()} data={item} />
-            ))}
-          </div>
+        <Card className={styles.displayPanel}>
+          {this.props.list.map((item) => (
+            <UserItem key={Math.random().toString()} data={item} />
+          ))}
         </Card>
       )
     );

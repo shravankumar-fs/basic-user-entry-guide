@@ -4,7 +4,7 @@
   background: linear-gradient(
     135deg,
     hsla(0, 0%, 100%, 0.05),
-    hsla(0, 0%, 100%, 0.15)
+    hsla(0, 0%, 100%, 0.3)
   );
   box-shadow: -1px -1px 4px #fff3, inset -1px -1px 4px #fff3, 1px 1px 4px #0053,
     inset 1px 1px 4px #0053;
